@@ -10,8 +10,7 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
 const config_1 = __importDefault(require("./config"));
-const user_routes_1 = __importDefault(require("./routes/user.routes"));
-// Create Express server    
+const user_route_1 = __importDefault(require("./route/user.route"));
 const app = (0, express_1.default)();
 exports.app = app;
 app.use((0, cors_1.default)({
@@ -21,5 +20,5 @@ app.use((0, cors_1.default)({
 app.use((0, compression_1.default)());
 app.use((0, cookie_parser_1.default)());
 app.use(body_parser_1.default.json());
-app.use('/user', user_routes_1.default);
+app.use('/', user_route_1.default);
 //# sourceMappingURL=app.js.map

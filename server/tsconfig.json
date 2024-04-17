@@ -8,7 +8,7 @@
     "sourceMap": true,
     "outDir": "dist",
     "noImplicitAny": true
-  }, 
-  "include": ["src/**/*"],
+  },
+  "include": ["src/**/*", "../client/src/schema"],
   "exclude": ["node_modules"]
 }
