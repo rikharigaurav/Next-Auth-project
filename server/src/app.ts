@@ -1,34 +1,26 @@
-import express from 'express'
-import cors from 'cors'
+import { Router, Request, Response } from "express"
+import express from 'express';
+import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import compression from 'compression'
-import bodyParser from 'body-parser'
-import router from './routes'
+import cors from 'cors'
+import config from './config'
+
+import userRouter from './route/user.route'
 
 const app = express();
 
+
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
     credentials: true,
+    origin: config.CLIENT_URL,
   })
 )
-
-app.use(express.json({ limit: '16kb' }))
-app.use(express.urlencoded({ extended: true, limit: '16kb' }))
-app.use(express.static('public'))
 app.use(compression())
 app.use(cookieParser())
 app.use(bodyParser.json())
 
-//routes import
-import userRouter from './routes/user.routes.js'
+app.use('/', userRouter )
 
-
-//routes declaration
-app.use('/', router)
-
-
-// http://localhost:8000/api/v1/users/register
-
-export { app }
+export {app};

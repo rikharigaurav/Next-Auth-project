@@ -22,7 +22,7 @@ const RegisterUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     const hashedPassword = yield bcryptjs_1.default.hash(password, 10);
     const existingEmail = yield (0, user_1.getUserByEmail)(email);
     if (existingEmail) {
-        return { error: 'Email already exists' };
+        return { error: "email already exists" };
     }
     // const existingUsername = await getUserByUsername(username)
     // if(existingUsername) {

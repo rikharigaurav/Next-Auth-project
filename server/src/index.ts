@@ -1,13 +1,13 @@
 import express from 'express'
 import http from 'http'
 
-import { app }  from './app.js'
+import {app} from 'app';
+import config from './config'
 
-const PORT = 3000;
 
-const server = http.createServer(app);
+const server = http.createServer(app)
 
-app.listen(PORT, () => {
-  console.log(`⚙️ Server is running at port : ${PORT}`)
+server.listen(config.PORT, () => {
+  console.log(`Server running at ${config.CLIENT_URL}`)
 })
-  
+
