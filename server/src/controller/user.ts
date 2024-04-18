@@ -2,7 +2,7 @@ import { db } from "../db/db";
 import express from 'express'
 import { User } from "../interface/user.interface";
 
-const registerUser = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+const registerUser: express.RequestHandler = async (req, res ) => {
     try {
         // Assuming req.body is JSON data
         const user: User = req.body;
