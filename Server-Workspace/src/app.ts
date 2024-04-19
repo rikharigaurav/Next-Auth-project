@@ -12,6 +12,9 @@ const app = express()
 
 app.use(cors())
 
+// If app is served through a proxy, trust the proxy to allow HTTPS protocol to be detected
+// https://expressjs.com/en/guide/behind-proxies.html
+
 app.use(compression())
 app.use(cookieParser())
 app.use(bodyParser.json())

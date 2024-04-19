@@ -13,6 +13,8 @@ const user_route_1 = __importDefault(require("./route/user.route"));
 const app = (0, express_1.default)();
 exports.app = app;
 app.use((0, cors_1.default)());
+// If app is served through a proxy, trust the proxy to allow HTTPS protocol to be detected
+// https://expressjs.com/en/guide/behind-proxies.html
 app.use((0, compression_1.default)());
 app.use((0, cookie_parser_1.default)());
 app.use(body_parser_1.default.json());
