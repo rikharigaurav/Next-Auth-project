@@ -53,4 +53,3 @@ const getUserById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.getUserById = getUserById;
-//# sourceMappingURL=user.js.map

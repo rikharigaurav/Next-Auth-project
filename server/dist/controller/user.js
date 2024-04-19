@@ -44,4 +44,3 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     }
 });
 exports.registerUser = registerUser;
-//# sourceMappingURL=user.js.map

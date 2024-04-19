@@ -9,4 +9,3 @@ const config_1 = __importDefault(require("./config"));
 app_1.app.listen(config_1.default.PORT, () => {
     console.log(`Server running at ${config_1.default.CLIENT_URL}`);
 });
-//# sourceMappingURL=index.js.map

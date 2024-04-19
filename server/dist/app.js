@@ -21,4 +21,3 @@ app.use((0, compression_1.default)());
 app.use((0, cookie_parser_1.default)());
 app.use(body_parser_1.default.json());
 app.use('/', user_route_1.default);
-//# sourceMappingURL=app.js.map

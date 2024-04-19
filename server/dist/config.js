@@ -10,4 +10,3 @@ exports.default = {
     PROTOCOL,
     CLIENT_URL,
 };
-//# sourceMappingURL=config.js.map

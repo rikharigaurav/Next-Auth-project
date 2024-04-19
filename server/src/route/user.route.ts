@@ -5,6 +5,6 @@ import { RegisterSchema } from "../schema";
 
 const router = Router()
 
-router.route('/register').post( Validation(RegisterSchema) , registerUser)
+router.route('/register').post(Validation(RegisterSchema) , registerUser)
 
 export default router

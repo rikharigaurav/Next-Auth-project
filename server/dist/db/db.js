@@ -14,4 +14,3 @@ else {
     }
     exports.db = db = global.__db;
 }
-//# sourceMappingURL=db.js.map
