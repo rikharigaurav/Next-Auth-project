@@ -7,13 +7,20 @@ import cors from 'cors'
 import config from './config'
 
 import userRouter from './route/user.route'
+import GitHub from '@auth/express/providers/github'
+import { ExpressAuth } from '@auth/express'
 
 const app = express()
 
 app.use(cors())
 
+
+
 // If app is served through a proxy, trust the proxy to allow HTTPS protocol to be detected
 // https://expressjs.com/en/guide/behind-proxies.html
+app.set('trust proxy', true)
+app.use('/auth/*', ExpressAuth({ providers: [GitHub] }))
+
 
 app.use(compression())
 app.use(cookieParser())
