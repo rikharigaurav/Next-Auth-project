@@ -4,7 +4,7 @@
  * @type {string[]}
  */
 
-export const publicRoutes = ['/', '/auth/new-verification']
+export const publicRoutes = ['/', '/new-verification']
 
 /**
  * An array of routes used for authentication
@@ -13,11 +13,11 @@ export const publicRoutes = ['/', '/auth/new-verification']
  */
 
 export const authRoutes = [
-  '/auth/new-password',
-  '/auth/reset',
-  '/auth/login',
-  '/auth/register',
-  '/auth/error',
+  '/new-password',
+  '/reset',
+  '/login',
+  '/register',
+  '/error',
 ]
 
 /**
@@ -33,4 +33,4 @@ export const apiAuthPrefix = '/api/auth'
  * @type {string}
  */
 
-export const DEFAULT_LOGIN_REDIRECT = '/auth/board'
+export const DEFAULT_LOGIN_REDIRECT = '/board'
