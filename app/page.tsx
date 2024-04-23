@@ -10,7 +10,7 @@ const font = Poppins({
 
 export default function Home() {
   return (
-    <main className='flex h-full w-full items-center justify-center base bg-[#9061F9] '>
+    <main className='flex h-full w-full items-center justify-center base bg-cyan-200  '>
       <div className=' space-y-5  px-10 py-7  rounded-lg  items-center justify-center border '>
         <h1
           className={cn(
@@ -26,7 +26,7 @@ export default function Home() {
         <div className='w-full h-full '>
           <LoginButton>
             <Button
-              className='w-full bg-white text-black hover:bg-black hover:text-white'
+              className='w-full bg-white text-black hover:bg-black hover:text-white hover:transition'
               size='lg'
               variant='outline'
             >

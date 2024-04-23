@@ -2,9 +2,8 @@ const authLayout = ({
     children
 }: any) => {
     return (
-      <div className='h-full max-w-full items-center justify-center flex bg-[#9061F9] '>
-        <div className="bg-white">
-
+      <div className='h-full w-full items-center justify-center flex bg-cyan-200 '>
+        <div className="bg-white rounded-md">
         {children}
         </div>
       </div>

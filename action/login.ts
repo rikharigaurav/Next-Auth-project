@@ -39,6 +39,7 @@ export const login = async(values: z.infer<typeof LoginSchema>) => {
         return { success: " Confirmation email sent "}
     };
 
+
     // Check if user has 2FA enabled
     if(existingUser.isTwoFactorEnabled && existingUser.email) {
         if(code){
@@ -90,9 +91,10 @@ export const login = async(values: z.infer<typeof LoginSchema>) => {
                 twoFactorToken.email,
                 twoFactorToken.token
             )
+            
+            return { twoFactor: true } 
         }
 
-        return { twoFactor: true } 
     }
 
     try {

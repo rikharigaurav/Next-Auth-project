@@ -60,14 +60,6 @@ export const RegisterForm = () => {
     })
   }
 
-  // const onSubmit = (values: any) => {
-  //     const req = axios({
-  //         method: 'post',
-  //         url: '/register',
-  //         data: {values},
-  // })
-  // }
-
   return (
     <CardWrapper
       headerLabel='Create an Account'
@@ -144,7 +136,7 @@ export const RegisterForm = () => {
           <div>
             <FormError message={error} />
             <FormSuccess message={success} />
-            <Button type='submit' className='w-full'>
+            <Button type='submit' className='w-full border hover:bg-black  hover:text-white'>
               Sign Up
             </Button>
           </div>

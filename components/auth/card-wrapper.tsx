@@ -21,7 +21,7 @@ export const CardWrapper = ({
   showSocial,
 }: CardWrapperProps) => {
   return (
-    <Card className='w-[400px] shadow-md '>
+    <Card className='w-[400px] shadow-md rounded-md'>
       <CardHeader>
         <Header label={headerLabel} />
       </CardHeader>
@@ -31,8 +31,8 @@ export const CardWrapper = ({
           <Social />
         </CardFooter>
       )}
-      <CardFooter >
-        <BackButton href={backButtonHref} label={backButtonLabel}  />
+      <CardFooter>
+        <BackButton href={backButtonHref} label={backButtonLabel} />
       </CardFooter>
     </Card>
   )
