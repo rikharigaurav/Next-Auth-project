@@ -16,14 +16,14 @@ export const Navbar = () => {
             asChild
             variant={pathname === '/server' ? 'ghost' : 'outline'}
           >
-            <Link href='/server'>server</Link>
+            <Link href='/server'>Server</Link>
           </Button>
 
           <Button
             asChild
             variant={pathname === '/client' ? 'ghost' : 'outline'}
           >
-            <Link href='/client'>client</Link>
+            <Link href='/client'>Client</Link>
           </Button>
 
           <Button asChild variant={pathname === '/board' ? 'ghost' : 'outline'}>
@@ -32,9 +32,9 @@ export const Navbar = () => {
 
           <Button
             asChild
-            variant={pathname === '/Admin' ? 'ghost' : 'outline'}
+            variant={pathname === '/admin' ? 'ghost' : 'outline'}
           >
-            <Link href='/Admin'>Admin</Link>
+            <Link href='/admin'>Admin</Link>
           </Button>
         </div>
         <UserButton />
