@@ -57,6 +57,9 @@ export const LoginForm = () => {
             form.reset()
             setSuccess(data.success)
           }
+          if(data?.twoFactor){
+            setShowTwoFactor(true)
+          }
         })
         .catch(() => {
           setError('Something went wrong!')
@@ -74,6 +77,25 @@ export const LoginForm = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
           <div className='space-y-4 '>
+            {showTwoFactor && (
+              <FormField
+                control={form.control}
+                name='code'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Verification Code</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder='123456'
+                        {...field}
+                        disabled={isPending}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
             {!showTwoFactor && (
               <>
                 <FormField
@@ -107,12 +129,8 @@ export const LoginForm = () => {
                           disabled={isPending}
                         />
                       </FormControl>
-                      <Button
-                        size={'sm'}
-                        asChild
-                        className='px-0 font-normal '
-                      >
-                        <Link href={'/reset'} >Forgot password?</Link>
+                      <Button size={'sm'} asChild className='px-0 font-normal '>
+                        <Link href={'/reset'}>Forgot password?</Link>
                       </Button>
                       <FormMessage />
                     </FormItem>
@@ -124,10 +142,8 @@ export const LoginForm = () => {
           <div>
             <FormError message={error || urlError} />
             <FormSuccess message={success} />
-            <Button type='submit'
-            variant='secondary'
-            className='w-full'>
-              Sign In
+            <Button type='submit' variant='secondary' className='w-full'>
+              {showTwoFactor ? 'Confirm' : 'Login'}
             </Button>
           </div>
         </form>

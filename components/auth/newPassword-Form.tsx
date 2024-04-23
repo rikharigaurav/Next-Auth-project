@@ -10,35 +10,39 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { useForm } from 'react-hook-form'
-import { ResetSchema } from '@/schema'
+import { NewPasswordSchema } from '@/schema'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { FormError } from '@/components/form-error'
 import { FormSuccess } from '@/components/form-success'
+import { newPassword } from '@/action/new-password'
 import { useState, useTransition } from 'react'
-import { reset } from '@/action/reset'
+import { useSearchParams } from 'next/navigation'
 
-export const ResetForm = () => {
+export const NewPasswordForm = () => {
+
+  const SearchParams = useSearchParams();
+  const token = SearchParams.get("token")
 
   const [showTwoFactor, setShowTwoFactor] = useState(false)
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
   const [isPending, startTransition] = useTransition()
 
-  const form = useForm<z.infer<typeof ResetSchema>>({
-    resolver: zodResolver(ResetSchema),
+  const form = useForm<z.infer<typeof NewPasswordSchema>>({
+    resolver: zodResolver(NewPasswordSchema),
     defaultValues: {
-      email: '',
+      password: '',
     },
   })
 
-  const onSubmit = (values: z.infer<typeof ResetSchema>) => {
+  const onSubmit = (values: z.infer<typeof NewPasswordSchema>) => {
     setError('')
     setSuccess('')
     startTransition(() => {
-      reset(values)
+      newPassword(values)
         .then((data) => {
           if (data?.error) {
             form.reset()
@@ -57,7 +61,7 @@ export const ResetForm = () => {
 
   return (
     <CardWrapper
-      headerLabel='Reset your password'
+      headerLabel='Enter New Password'
       backButtonHref='/login'
       backButtonLabel="back to login"
     >
@@ -68,15 +72,16 @@ export const ResetForm = () => {
               <>
                 <FormField
                   control={form.control}
-                  name='email'
+                  name='password'
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>Password</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder='email'
+                          placeholder='password'
                           {...field}
                           disabled={isPending}
+                          type='password'
                         />
                       </FormControl>
                       <FormMessage />
@@ -93,7 +98,7 @@ export const ResetForm = () => {
             <Button type='submit'
             variant='secondary'
             className='w-full'>
-              Send Reset Email
+              Reset Password
             </Button>
           </div>
         </form>
