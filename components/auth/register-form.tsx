@@ -21,7 +21,6 @@ import { CardWrapper } from './card-wrapper'
 import { useState, useTransition } from 'react'
 import { register } from '@/action/register'
 import { FormError } from '../form-error'
-import axios from 'axios'
 import { FormSuccess } from '../form-success'
 
 export const RegisterForm = () => {
